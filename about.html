@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱圣公益基金会-关于我们</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/neatlogo.svg" type="image/svg+xml"> <!-- 添加图标 -->
+  </head>
+
+
+<!-- 导航栏 -->
+<header>
+    <nav>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <img src="img/neatlogo.svg" alt="logo">
+      </div>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="#" class="active">关于我们</a></li>
+        <li><a href="projects.html">公益项目</a></li>
+        <li><a href="aidetalk.html">爱德说</a></li>
+        <li><a href="info.html">信息公开</a></li>
+        <li><a href="news.html">资讯</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <body class="about-page">
+<!-- 横幅 -->
+<div class="first-screen">
+    <div class="text">
+        <h1>关于我们</h1>
+    </div>
+    <div class="image">
+        <img src="img/neatlogo.svg" alt="Hp2">
+    </div>
+</div>
+
+<!-- 板块 A -->
+<section class="section-a">
+  <div class="container">
+    <h2>机构简介</h2>
+    <div class="image">
+        <img src="img/机构简介.png" alt="Hp2">
+    </div>
+    <p>深圳市爱圣公益基金会（原深圳市正邦公益基金会）成立于2021年12月，系不以营利为目的的非公募基金会。<br><br>
+        深圳市爱圣公益基金会的宗旨：遵守宪法、法律、法规和国家政策，践行社会主义核心价值观，遵守社会道德风尚，以开展慈善活动为宗旨，不以营利为目的。以立德树人、促进儿童健康成长为主线，搭建公信透明的公益平台，筹集、接受、管理捐赠资金，通过社会倡导、募集资金、救助资助、公益服务等方式，支持儿童教育公益事业的可持续发展。<br><br>
+        深圳市爱圣公益基金会于2022年创办了“爱德说”幼儿德育作品征集活动（原“正邦说”幼儿德育作品征集活动），旨在贯彻落实习近平总书记关于加强幼儿德育教育工作的重要指示。用爱妙笔生花，以德生根发芽。“爱德说”希冀通过年复一年的不懈努力，聚合全社会有识之士，共同培养热爱中国共产党、热爱祖国、热爱人民的德才兼备的未来主人。</p>
+  </div>
+</section>
+
+<!-- 板块 B -->
+<section class="section-b">
+  <div class="container">
+    <h2>资质文件</h2>
+    <div class="image">
+        <img src="img/zizhiwenjian.jpg" alt="Hp2">
+    </div>
+  </div>
+</section>
+
+<!-- 规章制度板块 -->
+<section class="section-c">
+    <div class="container">
+        <h2>规章制度</h2>
+        <div class="files">
+            <div class="file" onclick="openModal('files/2024report.pdf')">
+                <img src="img/iconfile.svg" alt="文件图标">
+                <span>基金会章程</span>
+                <div class="title">
+                    <span class="title">→</span>
+                </div>
+            </div>
+            <div class="file" onclick="openModal('files/2024report.pdf')">
+                <img src="img/iconfile.svg" alt="文件图标">
+                <span>党建工作制度</span>
+                <div class="title">
+                    <span class="title">→</span>
+                </div>
+            </div>
+            <div class="file" onclick="openModal('files/2024report.pdf')">
+                <img src="img/iconfile.svg" alt="文件图标">
+                <span>信息公开制度</span>
+                <div class="title">
+                    <span class="title">→</span>
+                </div>
+            </div>
+            <div class="file" onclick="openModal('files/2024report.pdf')">
+                <img src="img/iconfile.svg" alt="文件图标">
+                <span>项目管理制度</span>
+                <div class="title">
+                    <span class="title">→</span>
+                </div>
+            </div>
+            <div class="file" onclick="openModal('files/2024report.pdf')">
+                <img src="img/iconfile.svg" alt="文件图标">
+                <span>捐赠管理办法</span>
+                <div class="title">
+                    <span class="title">→</span>
+                </div>
+            </div>
+            <div class="file" onclick="openModal('files/2024report.pdf')">
+                <img src="img/iconfile.svg" alt="文件图标">
+                <span>财务管理制度</span>
+                <div class="title">
+                    <span class="title">→</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 弹窗 -->
+<div id="pdfModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <iframe id="pdfFrame" src="" frameborder="0"></iframe>
+    </div>
+</div>
+
+<script>
+    function openModal(pdfUrl) {
+        document.getElementById('pdfFrame').src = pdfUrl;
+        document.getElementById('pdfModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('pdfModal').style.display = 'none';
+        document.getElementById('pdfFrame').src = '';
+    }
+</script>
+<!-- 板块 D -->
+<section class="section-d">
+  <h2>组织架构</h2>
+  <div class="container">
+    <div class="content">
+      <div class="logo">
+        <img src="img/LOGO.png" alt="LOGO">
+      </div>
+      <div class="structure">
+        <img src="img/jiegou.png" alt="结构图">
+      </div>
+      <div class="text">
+        <h3>理事会</h3>
+        <p>第一届理事长：李利<br>
+           第一届副理事长：关云平<br>
+           第一届理事：李利、关云平、陈雅、苏强、阎国华</p>
+        <h3>监事</h3>
+        <p>第一届监事：白一涵<br>
+        <h3>秘书处</h3>
+        <p>秘书长：阎国华<br>
+            第一届秘书长：陈雅<br>
+            第一届副秘书长：姚儒达</p>
+         <h3>党支部</h3>
+        <p>第一届支部书记：于璐</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 板块 E -->
+<section class="section-e">
+    <div class="container">
+        <h2>党建工作</h2>
+        <div class="activities">
+            <div class="activity">
+                <div class="name">
+                    <span class="title">党建工作新视角</span>
+                    <span class="date">2025-03-01</span>
+                </div>
+                <div class="title">
+                    <span class="title">→</span>
+                </div>
+            </div>
+            <div class="activity">
+                <div class="name">
+                    <span class="title">党建工作研讨会</span>
+                    <span class="date">2025-04-15</span>
+                </div>
+                <div class="title">
+                    <span class="title">→</span>
+                </div>
+            </div>
+            <div class="activity">
+                <div class="name">
+                    <span class="title">党建工作培训</span>
+                    <span class="date">2025-05-20</span>
+                </div>
+                <div class="title">
+                    <span class="title">→</span>
+                </div>
+            </div>
+            <div class="activity">
+                <div class="name">
+                    <span class="title">党建工作交流会</span>
+                    <span class="date">2025-06-10</span>
+                </div>
+                <div class="title">
+                    <span class="title">→</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <a href="#"><img src="img/LOGO.png" alt="Logo"></a>
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="#">首页</a></li>
+          <li><a href="about.html">关于我们</a></li>
+          <li><a href="projects.html">公益项目</a></li>
+          <li><a href="aidetalk.html">爱德说</a></li>
+          <li><a href="info.html">信息公开</a></li>
+          <li><a href="news.html">资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <p>All Rights Reserved. 深圳市爱圣公益基金会 版权所有</p>
+        <p>备案号：粤ICP备2022055650号-1</p>
+      </div>
+      <div class="footer-bottom-right">
+        <div class="footer-contact">
+          <p>邮箱：info@ascendfoundation.org.cn</p>
+          <p>地址：深圳市南山区粤海街道科苑南路2666号中国华润大厦</p>
+        </div>
+        <div class="footer-qrcode">
+          <img src="img/QRcode.jpg" alt="QR Code">
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+    function toggleMenu() {
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        dropdownMenu.classList.toggle('active');
+    }
+
+    // 打开弹窗
+    function openModal(pdfUrl) {
+        document.getElementById('pdfFrame').src = pdfUrl;
+        document.getElementById('pdfModal').style.display = 'block';
+    }
+
+    // 关闭弹窗
+    function closeModal() {
+        document.getElementById('pdfModal').style.display = 'none';
+        document.getElementById('pdfFrame').src = '';
+    }
+</script>
+
+</body>
+
+</html>

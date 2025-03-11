@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信息公开</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="info.css"> <!-- 确保正确引用了 info.css -->
+    <link rel="icon" href="img/neatlogo.svg" type="image/svg+xml"> <!-- 添加图标 -->
+</head>
+ 
+<body class="info">
+
+<!-- 导航栏 -->
+<header>
+  <nav>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <img src="img/neatlogo.svg" alt="logo">
+      </div>
+    <ul>
+      <li><a href="index.html">首页</a></li>
+      <li><a href="about.html">关于我们</a></li>
+      <li><a href="projects.html">公益项目</a></li>
+      <li><a href="aidetalk.html">爱德说</a></li>
+      <li><a href="#" class="active">信息公开</a></li>
+      <li><a href="news.html">资讯</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- 首屏 -->
+<section class="first-screen">
+    <div class="text">
+        <h1>信息公开</h1>
+    </div>
+    <div class="tabs">
+      <button class="tab active" onclick="showFiles('2024')">2024年</button>
+      <button class="tab" onclick="showFiles('2023')">2023年</button>
+      <button class="tab" onclick="showFiles('2022')">2022年</button>
+    </div>
+</section>
+
+<!-- 文件列表 -->
+<section class="section">
+    <div class="files" id="files-2024">
+      <div class="file" onclick="openModal('files/2024report.pdf')">
+        <img src="img/iconfile.svg" alt="文件图标">
+        <span>2024年度工作报告</span>
+        <div class="title">
+            <span class="title">→</span>
+        </div>
+      </div>
+      <div class="file" onclick="openModal('files/2024report.pdf')">
+        <img src="img/iconfile.svg" alt="文件图标">
+        <span>2024年度审计报告</span>
+        <div class="title">
+            <span class="title">→</span>
+        </div>
+      </div>
+      <div class="file" onclick="openModal('files/2024report.pdf')">
+        <img src="img/iconfile.svg" alt="文件图标">
+        <span>2024年度财务报告</span>
+        <div class="title">
+            <span class="title">→</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="files" id="files-2023" style="display: none;">
+      <div class="file" onclick="openModal('files/2024report.pdf')">
+        <img src="img/iconfile.svg" alt="文件图标">
+        <span>2023年度工作报告</span>
+        <div class="title">
+            <span class="title">→</span>
+        </div>
+      </div>
+      <div class="file" onclick="openModal('files/2024report.pdf')">
+        <img src="img/iconfile.svg" alt="文件图标">
+        <span>2023年度审计报告</span>
+        <div class="title">
+            <span class="title">→</span>
+        </div>
+      </div>
+      <div class="file" onclick="openModal('files/2024report.pdf')">
+        <img src="img/iconfile.svg" alt="文件图标">
+        <span>2023年度财务报告</span>
+        <div class="title">
+            <span class="title">→</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="files" id="files-2022" style="display: none;">
+      <div class="file" onclick="openModal('files/2024report.pdf')">
+        <img src="img/iconfile.svg" alt="文件图标">
+        <span>2022年度工作报告</span>
+        <div class="title">
+            <span class="title">→</span>
+        </div>
+      </div>
+      <div class="file" onclick="openModal('files/2024report.pdf')">
+        <img src="img/iconfile.svg" alt="文件图标">
+        <span>2022年度审计报告</span>
+        <div class="title">
+            <span class="title">→</span>
+        </div>
+      </div>
+      <div class="file" onclick="openModal('files/2024report.pdf')">
+        <img src="img/iconfile.svg" alt="文件图标">
+        <span>2022年度财务报告</span>
+        <div class="title">
+            <span class="title">→</span>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- 弹窗 -->
+<div id="pdfModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <iframe id="pdfFrame" src="" frameborder="0"></iframe>
+    </div>
+</div>
+
+<script>
+    function toggleMenu() {
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        dropdownMenu.classList.toggle('active');
+    }
+
+    function showFiles(year) {
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => tab.classList.remove('active'));
+        document.querySelector(`.tab[onclick="showFiles('${year}')"]`).classList.add('active');
+
+        const filesSections = document.querySelectorAll('.files');
+        filesSections.forEach(section => section.style.display = 'none');
+        document.getElementById(`files-${year}`).style.display = 'flex';
+    }
+
+    // 打开弹窗
+    function openModal(pdfUrl) {
+        document.getElementById('pdfFrame').src = pdfUrl;
+        document.getElementById('pdfModal').style.display = 'block';
+    }
+
+    // 关闭弹窗
+    function closeModal() {
+        document.getElementById('pdfModal').style.display = 'none';
+        document.getElementById('pdfFrame').src = '';
+    }
+</script>
+
+<!-- 页脚 -->
+<footer>
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <a href="#"><img src="img/LOGO.png" alt="Logo"></a>
+        </div>
+        <div class="footer-links">
+          <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="projects.html">公益项目</a></li>
+            <li><a href="aidetalk.html">爱德说</a></li>
+            <li><a href="info.html">信息公开</a></li>
+            <li><a href="news.html">资讯</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          <p>All Rights Reserved. 深圳市爱圣公益基金会 版权所有</p>
+          <p>备案号：粤ICP备2022055650号-1</p>
+        </div>
+        <div class="footer-bottom-right">
+          <div class="footer-contact">
+            <p>邮箱：info@ascendfoundation.org.cn</p>
+            <p>地址：深圳市南山区粤海街道科苑南路2666号中国华润大厦</p>
+          </div>
+          <div class="footer-qrcode">
+            <img src="img/QRcode.jpg" alt="QR Code">
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+</body>
+</html>

@@ -1,0 +1,197 @@
+/* 列表板块样式 */
+
+/* 首屏样式 */
+.first-screen {
+    height: 300px; /* 高度改为440px */
+    padding-bottom: 40px; /* 调整底部内边距 */
+  }
+  
+  .first-screen .text {
+    margin-bottom: -160px;
+  }
+
+.news .section-e .container {
+    padding: 128px 10%; /* 设置内边距 */
+ }
+
+.news .section-e .activities {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0px; /* 行与行之间的分割线 */
+  border-top: 1px solid #333; /* 分割线 */
+}
+
+.news .section-e .activity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px; /* 每行内边距 */
+  background-color: #fff; /* 背景色 */
+  border-bottom: 1px solid #333; /* 分割线 */
+  transition: background-color 0.3s ease, color 0.3s ease; /* 悬停效果 */
+}
+
+
+.news .section-e .activity:hover {
+  border-bottom-color: #98C01A; /* 悬停分割线颜色 */
+}
+
+.news .section-e .activity:hover .title,
+.news .section-e .activity:hover .date{
+  color: #98C01A; /* 悬停文字颜色 */
+
+}
+
+.news .section-e .activity .name {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* 行与行之间的分割线 */
+}
+
+
+.news .section-e .activity .title{
+  font-size: 24px; /* 文案字号 */
+  color: #333; /* 默认文字颜色 */
+}
+
+.news .section-e .activity .date{
+  font-size: 14px; /* 文案字号 */
+  color: #666; /* 默认文字颜色 */
+}
+
+
+.news .section-e .activity img {
+  margin-left: 16px; /* 图标和文字之间的间隔 */
+}
+
+/* 弹窗样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+}
+
+.modal-content {
+    position: relative;
+    margin: 5% auto;
+    padding: 0;
+    width: 80%;
+    height: 80%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+/* 页脚样式 */
+footer {
+  background-color: #EFF7F2;
+  color: #333;
+  height: fit-content;
+  padding: 40px 0px;
+  border-bottom: 24px solid #1E7D74;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* 上下部分之间的间隔 */
+  padding: 40px 10%;
+  background-color: transparent;
+  color: #333;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px; /* 根据需要调整高度 */
+}
+
+.footer-bottom-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* 文案之间的间隔 */
+}
+
+.footer-qrcode img {
+  width: 100px; /* 根据需要调整QR Code大小 */
+  height: auto;
+  border: 1px solid #333;
+}
+
+/* 响应布局 */
+@media (max-width: 768px) {
+  .news .section-e .container {
+    padding: 0; /* 调整内边距 */
+  }
+
+  .news .section-e .activity {
+    padding: 16px; /* 调整每行内边距 */
+  }
+
+  .news .section-e .activity .title,
+  .news .section-e .activity .date {
+    font-size: 16px; /* 调整文案字号 */
+  }
+
+  .footer-container {
+    padding: 20px 5%; /* 调整内边距 */
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    margin-top: 16px;
+    gap: 16px; /* 上下部分之间的间隔 */
+  }
+
+  .footer-bottom-right {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-contact {
+    align-items: center;
+  }
+
+  .footer-qrcode img {
+    width: 80px; /* 调整QR Code大小 */
+  }
+}

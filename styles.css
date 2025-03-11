@@ -1,0 +1,1387 @@
+/* 定义自定义变量 */
+:root {
+    --light-green-linear: linear-gradient(180deg, #F7FAE9 0%, #EBFEFC 100%);
+  }
+  
+  /* 公益项目页面的样式 */
+  @import url('projects.css');
+  
+
+
+  /* 全局样式 */
+  h1 {
+    font-family: 'Source Han Sans CN', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 150%;
+    margin: 0;
+
+  }
+
+
+  body {
+    font-family: 'Source Han Sans CN', 'Arial Narrow', Arial, sans-serif, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background: transparent;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 10%;
+    z-index: 1000;
+  }
+  
+       /* 导航栏样式 */
+    nav {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 40px 10% 8px 0px; /* 确保所有页面的导航栏使用相同的padding */
+      position: relative;
+      transition: top 0.3s ease;
+    }
+    
+    .fixed-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #fff; /* 根据需要调整背景颜色 */
+      z-index: 1000;  
+      padding: 20px 10%; /* 调整固定后导航栏的padding */
+    }
+    
+    .menu-icon {
+      position: fixed;
+      top: 32px;
+      left: 5%;
+      z-index: 1001;
+      cursor: pointer;
+      margin-right: 24px;
+    }
+    
+    img {
+      height: 40px;
+    }
+    
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      padding-inline-start: 0px;
+    }
+    
+    nav ul li {
+      margin-right: 64px;
+    }
+    
+    nav ul li a {
+      display: inline-block;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 300;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    nav ul li a img {
+      height: auto;
+      max-width: 100%;
+    }
+    
+    nav ul li a:not(:first-child)::after {
+      content: '';
+      display: block;
+      width: 90px;
+      height: 2px;
+      background: #98C01A;
+      transition: 0.3s;
+      position: absolute;
+      bottom: 0%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    nav ul li a:not(:first-child):hover::after,
+    nav ul li a.active::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: #98C01A;
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    nav ul li a:hover {
+      color: #98C01A;
+    }
+    
+    nav ul li a.active {
+      font-size: 18px;
+      font-weight: 400;
+      color: #333333;
+    }
+    
+    /* 响应式导航栏 */
+    @media (max-width: 798px) {
+      nav ul {
+        display: none; /* 隐藏导航菜单 */
+        margin-bottom: 40px;
+      }
+    
+      .menu-icon {
+        display: block; /* 显示菜单图标 */
+        cursor: pointer;
+      }
+    
+      .dropdown-menu {
+        display: none; /* 隐藏下拉菜单 */
+        flex-direction: column;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 100%;
+        background-color: #F5FBED;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        transform: translateY(-20px);
+      }
+    
+      .dropdown-menu.active {
+        display: flex; /* 显示下拉菜单 */
+        opacity: 1;
+        transform: translateY(0);
+      }
+    
+    
+      .dropdown-menu li {
+        margin: 0;
+        padding: 16px;
+        text-align: center;
+      }
+    
+      .dropdown-menu li a {
+        font-size: 18px;
+        color: #333;
+      }
+    }
+    
+    /* 在宽度大于798px时隐藏dropdown-menu */
+    @media (min-width: 799px) {
+      .dropdown-menu {
+        display: none !important; /* 强制隐藏下拉菜单 */
+      }
+    }
+
+  /* 第一屏 */
+  .first-screen {
+    height: 768px;
+    background: var(--light-green-linear);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+ .first-screen .text {
+    color: #333;
+    top: 120px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 84px; /* 150% */
+    min-width: 392px;
+  }
+  
+  .first-screen .image {
+    position: absolute;
+    bottom: -6px;
+    right: 0;
+    width: 50%;
+    margin-right: 0;
+  }
+  
+  .first-screen .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+
+  /* 响应布局 */
+@media (max-width: 768px) {
+  .first-screen {
+    flex-direction: column;
+    align-items: center;
+    padding:80px 10%;
+  }
+
+
+  .first-screen .image {
+    width: 100%; /* 在小屏幕上调整图片宽度 */
+    margin-right: 0; /* 移除右侧margin */
+    margin-bottom: 20px; /* 添加底部margin以分隔内容 */
+  }
+
+}
+
+
+  /* 第二屏——简介 */ 
+  .second-screen {
+      position: relative;
+      width: 100%;
+      height: 60%;
+  }
+  
+  .second-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+  
+  .intro {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 90%;
+    background-color: #1F7D73;
+    color: #FFF;
+    padding: 40px 80px 40px 10%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px; /* 左右块之间的间隔 */
+    
+}
+  .intro h2 {
+  font-size: 48pt;
+  margin: 0;
+  width: auto;
+}
+
+.intro-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* 标题之间的间隔 */
+  min-width: 640px;
+}
+
+.intro-right {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* 段落文本和按钮之间的间隔 */
+}
+.intro p {
+  font-size: 18pt;
+  margin: 0;
+  flex: 1;
+  margin: 0;
+  font-weight: 300;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 0;
+  margin: 0;
+  font-size: 16pt; /* 根据需要调整字体大小 */
+  color: #FFF; /* 默认文字颜色 */
+  background-color: transparent; /* 默认背景颜色 */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+  .button:hover {
+  color: #98C01A; /* 悬停文字颜色 */
+}
+
+  .button:active {
+  color: #1E7D74; /* 点击文字颜色 */
+}
+
+
+/* 媒体查询 */
+
+@media (max-width: 1280px) {
+  .intro {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+  }
+
+  .second-screen img {
+    width: 100%;
+    height: 1400px;
+    object-fit: cover;
+  }
+
+  .intro h2 {
+      font-size: 40pt;
+  }
+
+  .intro h2::after {
+    margin: 0 0 20px 0;
+    font-size: 40pt;
+  }   
+
+  .intro p {
+      margin: 0;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .intro h2 {
+      font-size: 36pt;
+  }
+  .intro h2::after {
+    margin: 0 0 20px 0;
+    font-size: 36pt;
+  }   
+
+}
+
+@media (max-width: 768px) {
+  .intro h2 {
+      font-size: 32pt;
+  }
+  .intro h2::after {
+    margin: 0 0 20px 0;
+    font-size: 40pt;
+  }   
+
+}
+
+
+
+/* 第三屏——视频 */ 
+.third-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 128px 10% 128px 10%;
+}
+
+.third-screen img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+
+
+/* 公益项目 */
+.projects .project {
+  height: 400px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin: 128px 10% 128px 10%;
+}
+
+.project-image img {
+  width: fill-container;
+  object-fit: cover;
+  height: auto;
+  border-radius: 31px 31px 0px 31px;
+  margin-right: 80px; /* 图片和文本之间的间隔 */
+}
+
+.project-details {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* 各元素之间的间隔 */
+}
+
+.project-tag {
+  color: #1F7D73;
+  font-size: 14pt;
+}
+
+.project-title {
+  font-size: 24pt;
+  margin: 0;
+}
+
+.project-description {
+  font-size: 16pt;
+  color: #333;
+  font-weight: 300;
+  margin: 0;
+}
+
+.button2 {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 0;
+  margin: 0;
+  font-size: 16pt; /* 根据需要调整字体大小 */
+  color: #333; /* 默认文字颜色 */
+  background-color: transparent; /* 默认背景颜色 */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.button2:hover {
+  color: #98C01A; /* 悬停文字颜色 */
+}
+
+.button2:active {
+  color: #1E7D74; /* 点击文字颜色 */
+}
+
+/* 页脚 */
+footer {
+  background-color: #EFF7F2;
+  color: #333;
+  height: fit-content;
+  padding: 40px 0px;
+  border-bottom: 24px solid #1E7D74;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* 上下部分之间的间隔 */
+  padding: 40px 10%;
+  background-color: transparent;
+  color: #333;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px; /* 根据需要调整高度 */
+}
+
+.footer-logo img {
+  height: 58px; /* 根据需要调整logo大小 */
+}
+
+.footer-links {
+  width: 50%; /* 占屏幕宽度的50% */
+}
+
+.footer-links ul {
+  display: flex;
+  gap: 40px; /* 快速链接之间的间隔 */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: space-between; /* 使链接均匀分布 */
+}
+
+.footer-links ul li a {
+  color: rgba(0, 0, 0, 0.90);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+  color: #98C01A;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px; /* 根据需要调整高度 */
+}
+
+.footer-bottom-left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* 文案之间的间隔 */
+}
+
+.footer-bottom-right {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* 文案之间的间隔 */
+}
+
+.footer-qrcode img {
+  width: 100px; /* 根据需要调整QR Code大小 */
+  height: 100px;
+  border: 1px solid #333;
+}
+
+/* 媒体查询 */
+@media (max-width: 1280px) {
+  .projects .project {
+    flex-direction: column;
+    height: auto;
+    gap: 40px; /* 上下块之间的间隔 */
+  }
+
+  .project-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .project-details {
+    width: 100%;
+  }
+
+  footer {
+    background-color: #EFF7F2;
+    color: #333;
+    height: auto;
+    padding: 40px 0px;
+    border-bottom: 24px solid #1E7D74;
+  }
+  
+  .footer-container {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    gap:40px; /* 上下部分之间的间隔 */
+    padding: 40px 10%;
+    background-color: transparent;
+    color: #333;
+  }
+  
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px; /* 上下部分之间的间隔 */
+  }
+
+  .footer-links {
+    width: 100%;
+  }
+
+  .footer-links ul {
+    flex-direction: space-between;
+    align-items: flex-start;
+    gap: 16px; /* 快速链接之间的间隔 */
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    margin-top: 24px;
+    gap: 0px; /* 上下部分之间的间隔 */
+  }
+
+  .footer-bottom-right {
+    align-items: flex-end;
+    margin: 0;
+    width: 100%;
+  }
+
+  .footer-bottom-right p {
+    height: 10px; /* 设置高度为0px */
+  }
+  
+
+  .footer-bottom-left p {
+    height: 10px; /* 设置高度为0px */
+  }
+  
+  .footer-bottom-left {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    height: 16px;
+  }
+
+  .footer-bottom-right {
+    order: -1; /* 将右边内容放在左边内容上方 */
+  }
+}
+
+@media (max-width: 798px) {
+  .footer-container {
+    padding: 20px 10%; /* 调整内边距 */
+    height: 480px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .footer-bottom-left,
+  .footer-bottom-right {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px; /* 上下部分之间的间隔 */
+  }
+
+  .footer-bottom-left p,
+  .footer-bottom-right p {
+    height: auto; /* 调整高度 */
+  }
+
+  .footer-contact {
+    align-items: center;
+  }
+  .footer-qrcode img {
+    width: 80px; /* 调整QR Code大小 */
+  }
+}
+
+
+
+/* 关于我们 */
+.about-page .first-screen {
+  height: 420px; /* 设置第一屏高度为420px */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 0;
+  position: relative;
+  z-index: 1;
+}
+
+
+.about-page .first-screen .image {
+  position: absolute;
+  bottom: -80px;
+  width: 320px;
+  height: 320px;
+  margin-right: 10%;
+}
+
+.about-page .first-screen .image img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* 板块样式 */
+.about-page section {
+  margin: 128px 10%; /* 上下间隔128px，左右margin 10% */
+}
+
+.about-page .container {
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+.about-page h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.about-page p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* 机构简介板块中的段落文本样式 */
+.about-page .section-a p {
+  color: #888889;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 36px; /* 150% */
+}
+
+.about-page .section-a .image img {
+  width: 100%; /* 图片宽度充满 */
+  height: auto; /* 保持图片比例 */
+}
+
+/* 资质文件板块样式 */
+.about-page .section-b {
+  background: var(--light-green-linear); /* 使用渐变背景色 */
+  padding: 40px 10%; /* 设置内边距为40px */
+  border-radius: 8px; /* 可选：添加圆角 */
+  margin-left: 0; /* 去掉左右10%的margin */
+  margin-right: 0; /* 去掉左右10%的margin */
+}
+
+.about-page .section-b .image img {
+  width: 100%; /* 图片宽度充满 */
+  height: auto; /* 保持图片比例 */
+  border-radius: 8px; /* 可选：添加圆角 */
+}
+
+/* 规章制度板块样式 */
+.about-page .section-c .files {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px; /* 各文件间的间隔 */
+}
+
+.about-page .section-c .file {
+  display: flex;
+  align-items: center;
+  background: var(--light-green-linear); /* 渐变背景色 */
+  border: 1px solid #1E7D74; /* 1px的边框 */
+  padding: 24px 40px; /* 内边距 */
+  border-radius: 0px; /* 可选：添加圆角 */
+  flex: 1 1 calc(33.333% - 24px); /* 响应布局，每行3个文件 */
+  box-sizing: border-box;
+}
+
+.about-page .section-c .file img:first-child {
+  margin-right: 16px; /* 图标和文件名之间的间隔 */
+}
+
+.about-page .section-c .file span {
+  flex: 1;
+  font-size: 24px;
+  color: #1E7D74;
+}
+
+.about-page .section-c .file img:last-child {
+  margin-left: 16px; /* 文件名和箭头图标之间的间隔 */
+}
+
+/* Hover 样式 */
+.about-page .section-c .file:hover {
+  border-color: #98C01A; /* 边框颜色为亮绿色 */
+}
+
+.about-page .section-c .file:hover span {
+  color: #98C01A; /* 文案颜色为亮绿色 */
+}
+
+
+/* 响应布局 */
+@media (max-width: 1280px) {
+  .about-page .section-c .file {
+    flex: 1 1 calc(50% - 24px); /* 每行2个文件 */
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page .section-c .file {
+    flex: 1 1 100%; /* 每行1个文件 */
+  }
+}
+
+/* 弹窗样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+}
+
+.modal-content {
+    position: relative;
+    margin: 5% auto;
+    padding: 0;
+    width: 80%;
+    height: 80%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    position: absolute;
+    right: 25px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+/* 组织架构板块样式 */
+.about-page .section-d .container {
+  background: var(--light-green-linear); /* 渐变背景色 */
+  padding: 40px 72px; /* 设置内边距 */
+  border-radius: 40px 0px 40px 0px; /* 设置圆角 */
+}
+
+.about-page .section-d .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px; /* 各部分之间的间隔 */
+}
+
+.about-page .section-d .logo img
+ {
+  height: 100px;  /* 设置图片高度 */
+  width: auto; /* 保持图片比例 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-page .section-d .structure img {
+  width: 100%; /* 图片宽度充满 */
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-page .section-d .text {
+  background-color: #fff; /* 背景色 */
+  background-size: fill; /* 背景填充 */
+  border-radius: 24px; /* 背景圆角 */
+  text-align: center; /* 文案居中 */
+  padding: 40px 0; /* 设置内边距 */
+}
+
+.about-page .section-d .text h3 {
+  font-size: 24px; /* 文案字号 */
+  text-align: center; /* 段落靠右对齐 */
+  padding: 0; /* 设置内边距 */
+  color: #333; /* 文案颜色 */
+}
+
+.about-page .section-d .text p {
+  font-size: 24px; /* 文案字号 */
+  text-align: left; /* 段落靠右对齐 */
+  padding: 0; /* 设置内边距 */
+  color: #666; /* 文案颜色 */
+  font-weight: 300; /* 文案粗细 */
+  margin: 0;
+}
+
+/* 响应布局 */
+@media (max-width: 1280px) {
+  .about-page .section-d .content {
+    flex-direction: column;
+  }
+  .about-page .section-d .container {
+    padding: 20px 80px; /* 调整内边距 */
+  }
+
+  .about-page .section-d .text {
+    padding: 20px 40px; /* 调整内边距 */
+  }
+
+  .about-page .section-d .text h3,
+  .about-page .section-d .text p {
+    font-size: 20px; /* 调整文案字号 */
+    padding: 20px 40px; /* 调整内边距 */
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page .section-d .logo img{
+    height: 50px;  /* 设置图片高度 */
+    width: auto; /* 保持图片比例 */
+  }
+  
+}
+  
+  .about-page .section-d .container {
+    padding: 20px 36px; /* 调整内边距 */
+  }
+
+  .about-page .section-d .text {
+    padding: 20px; /* 调整内边距 */
+  }
+
+  .about-page .section-d .text h3,
+  .about-page .section-d .text p {
+    font-size: 20px; /* 调整文案字号 */
+    padding: 20px; /* 调整内边距 */
+  }
+
+
+/* 党建工作板块样式 */  
+.about-page .section-e .container {
+      padding: 0px; /* 设置内边距 */
+   }
+
+  .about-page .section-e .activities {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0px; /* 行与行之间的分割线 */
+    border-top: 1px solid #333; /* 分割线 */
+  }
+  
+  .about-page .section-e .activity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px; /* 每行内边距 */
+    background-color: #fff; /* 背景色 */
+    border-bottom: 1px solid #333; /* 分割线 */
+    transition: background-color 0.3s ease, color 0.3s ease; /* 悬停效果 */
+  }
+  
+
+  .about-page .section-e .activity:hover {
+    border-bottom-color: #98C01A; /* 悬停分割线颜色 */
+  }
+
+  .about-page .section-e .activity:hover .title,
+  .about-page .section-e .activity:hover .date{
+    color: #98C01A; /* 悬停文字颜色 */
+
+  }
+  
+  .about-page .section-e .activity .name {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* 行与行之间的分割线 */
+  }
+  
+
+  .about-page .section-e .activity .title{
+    font-size: 24px; /* 文案字号 */
+    color: #333; /* 默认文字颜色 */
+  }
+  
+  .about-page .section-e .activity .date{
+    font-size: 14px; /* 文案字号 */
+    color: #666; /* 默认文字颜色 */
+  }
+  
+  
+  .about-page .section-e .activity img {
+    margin-left: 16px; /* 图标和文字之间的间隔 */
+  }
+  
+  /* 响应布局 */
+  @media (max-width: 768px) {
+    .about-page .section-e .container {
+      padding: 0; /* 调整内边距 */
+    }
+  
+    .about-page .section-e .activity {
+      padding: 16px; /* 调整每行内边距 */
+    }
+  
+    .about-page .section-e .activity .title,
+    .about-page .section-e .activity .date {
+      font-size: 16px; /* 调整文案字号 */
+    }
+  }
+/* 关于我们 */
+.about-page .first-screen {
+height: 420px; /* 设置第一屏高度为420px */
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding-left: 10%;
+padding-right: 0;
+position: relative;
+z-index: 1;
+}
+
+
+.about-page .first-screen .image {
+  position: absolute;
+  bottom: -80px;
+  width: 320px;
+  height: 320px;
+  margin-right: 10%;
+}
+
+.about-page .first-screen .image img {
+width: 100%;
+height: auto;
+border-radius: 5px;
+}
+
+/* 板块样式 */
+.about-page section {
+margin: 128px 10%; /* 上下间隔128px，左右margin 10% */
+}
+
+.about-page .container {
+background-color: transparent;
+border-radius: 8px;
+}
+
+.about-page h2 {
+font-size: 32px;
+margin-bottom: 40px;
+font-weight: 400;
+}
+
+.about-page p {
+font-size: 18px;
+line-height: 1.6;
+}
+
+/* 机构简介板块中的段落文本样式 */
+.about-page .section-a p {
+color: #888889;
+font-size: 24px;
+font-style: normal;
+font-weight: 300;
+line-height: 36px; /* 150% */
+}
+
+.about-page .section-a .image img {
+width: 100%; /* 图片宽度充满 */
+height: auto; /* 保持图片比例 */
+}
+
+/* 资质文件板块样式 */
+.about-page .section-b {
+background: var(--light-green-linear); /* 使用渐变背景色 */
+padding: 40px 10%; /* 设置内边距为40px */
+border-radius: 8px; /* 可选：添加圆角 */
+margin-left: 0; /* 去掉左右10%的margin */
+margin-right: 0; /* 去掉左右10%的margin */
+}
+
+.about-page .section-b .image img {
+width: 100%; /* 图片宽度充满 */
+height: auto; /* 保持图片比例 */
+border-radius: 8px; /* 可选：添加圆角 */
+}
+
+/* 规章制度板块样式 */
+.about-page .section-c .files {
+display: flex;
+flex-wrap: wrap;
+gap: 24px; /* 各文件间的间隔 */
+}
+
+.about-page .section-c .file {
+display: flex;
+align-items: center;
+background: var(--light-green-linear); /* 渐变背景色 */
+border: 1px solid #1E7D74; /* 1px的边框 */
+padding: 24px 40px; /* 内边距 */
+border-radius: 0px; /* 可选：添加圆角 */
+flex: 1 1 calc(33.333% - 24px); /* 响应布局，每行3个文件 */
+box-sizing: border-box;
+}
+
+.about-page .section-c .file img:first-child {
+margin-right: 16px; /* 图标和文件名之间的间隔 */
+}
+
+.about-page .section-c .file span {
+flex: 1;
+font-size: 24px;
+color: #1E7D74;
+}
+
+.about-page .section-c .file img:last-child {
+margin-left: 16px; /* 文件名和箭头图标之间的间隔 */
+}
+
+/* 响应布局 */
+@media (max-width: 1280px) {
+.about-page .section-c .file {
+  flex: 1 1 calc(50% - 24px); /* 每行2个文件 */
+}
+}
+
+@media (max-width: 768px) {
+.about-page .section-c .file {
+  flex: 1 1 100%; /* 每行1个文件 */
+}
+}
+
+/* 弹窗样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+}
+
+.modal-content {
+    position: relative;
+    margin: 5% auto;
+    padding: 0;
+    width: 80%;
+    height: 80%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+/* 组织架构板块样式 */
+.about-page .section-d .container {
+background: var(--light-green-linear); /* 渐变背景色 */
+padding: 40px 72px; /* 设置内边距 */
+border-radius: 40px 0px 40px 0px; /* 设置圆角 */
+}
+
+.about-page .section-d .content {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 24px; /* 各部分之间的间隔 */
+}
+
+.about-page .section-d .logo img
+{
+height: 100px;  /* 设置图片高度 */
+width: auto; /* 保持图片比例 */
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.about-page .section-d .structure img {
+width: 100%; /* 图片宽度充满 */
+height: auto;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.about-page .section-d .text {
+background-color: #fff; /* 背景色 */
+background-size: fill; /* 背景填充 */
+border-radius: 24px; /* 背景圆角 */
+text-align: center; /* 文案居中 */
+padding: 40px 0; /* 设置内边距 */
+}
+
+.about-page .section-d .text h3 {
+font-size: 24px; /* 文案字号 */
+text-align: center; /* 段落靠右对齐 */
+padding: 0; /* 设置内边距 */
+color: #333; /* 文案颜色 */
+}
+
+.about-page .section-d .text p {
+font-size: 24px; /* 文案字号 */
+text-align: left; /* 段落靠右对齐 */
+padding: 0; /* 设置内边距 */
+color: #666; /* 文案颜色 */
+font-weight: 300; /* 文案粗细 */
+margin: 0;
+}
+
+/* 响应布局 */
+@media (max-width: 1280px) {
+.about-page .section-d .content {
+  flex-direction: column;
+}
+.about-page .section-d .container {
+  padding: 20px 80px; /* 调整内边距 */
+}
+
+.about-page .section-d .text {
+  padding: 20px 40px; /* 调整内边距 */
+}
+
+.about-page .section-d .text h3,
+.about-page .section-d .text p {
+  font-size: 20px; /* 调整文案字号 */
+  padding: 20px 40px; /* 调整内边距 */
+}
+}
+
+@media (max-width: 768px) {
+.about-page .section-d .logo img{
+  height: 50px;  /* 设置图片高度 */
+  width: auto; /* 保持图片比例 */
+}
+
+}
+
+.about-page .section-d .container {
+  padding: 20px 36px; /* 调整内边距 */
+}
+
+.about-page .section-d .text {
+  padding: 20px; /* 调整内边距 */
+}
+
+.about-page .section-d .text h3,
+.about-page .section-d .text p {
+  font-size: 20px; /* 调整文案字号 */
+  padding: 20px; /* 调整内边距 */
+}
+
+
+/* 党建工作板块样式 */  
+.about-page .section-e .container {
+    padding: 0px; /* 设置内边距 */
+ }
+
+.about-page .section-e .activities {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0px; /* 行与行之间的分割线 */
+  border-top: 1px solid #333; /* 分割线 */
+}
+
+.about-page .section-e .activity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px; /* 每行内边距 */
+  background-color: #fff; /* 背景色 */
+  border-bottom: 1px solid #333; /* 分割线 */
+  transition: background-color 0.3s ease, color 0.3s ease; /* 悬停效果 */
+}
+
+
+.about-page .section-e .activity:hover {
+  border-bottom-color: #98C01A; /* 悬停分割线颜色 */
+}
+
+.about-page .section-e .activity:hover .title,
+.about-page .section-e .activity:hover .date{
+  color: #98C01A; /* 悬停文字颜色 */
+
+}
+
+.about-page .section-e .activity .name {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* 行与行之间的分割线 */
+}
+
+
+.about-page .section-e .activity .title{
+  font-size: 24px; /* 文案字号 */
+  color: #333; /* 默认文字颜色 */
+}
+
+.about-page .section-e .activity .date{
+  font-size: 14px; /* 文案字号 */
+  color: #666; /* 默认文字颜色 */
+}
+
+
+.about-page .section-e .activity img {
+  margin-left: 16px; /* 图标和文字之间的间隔 */
+}
+
+/* 响应布局 */
+@media (max-width: 768px) {
+  .about-page .section-e .container {
+    padding: 0; /* 调整内边距 */
+  }
+
+  .about-page .section-e .activity {
+    padding: 16px; /* 调整每行内边距 */
+  }
+
+  .about-page .section-e .activity .title,
+  .about-page .section-e .activity .date {
+    font-size: 16px; /* 调整文案字号 */
+  }
+}
+
+/* 公益项目页面的样式 */
+.projects .first-screen {
+  height: 720px; /* 设置第一屏高度为720px */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%; /* 设置右侧padding为10% */
+  position: relative;
+  z-index: 1;
+}
+
+.projects .first-screen .image {
+  position: absolute;
+  bottom: 40px;
+  width: 40%;
+  height: auto;
+  margin-right: 10%;
+}
+
+.projects .first-screen .image img {
+  width: 100%;
+  height: auto;
+}
+
+/* 响应布局 */
+@media (max-width: 768px) {
+  .projects .first-screen {
+    flex-direction: column;
+    align-items: center;
+    padding:80px 10%;
+  }
+
+  .projects .first-screen .image {
+    width: 80%; /* 在小屏幕上调整图片宽度 */
+    margin-right: 0; /* 移除右侧margin */
+    margin-bottom: 20px; /* 添加底部margin以分隔内容 */
+  }
+}
+
+/* 信息公开页面的样式 */
+@import url('info.css');

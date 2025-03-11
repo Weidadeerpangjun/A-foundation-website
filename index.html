@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱圣公益基金会</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="img/neatlogo.svg" type="image/svg+xml"> <!-- 添加图标 -->
+</head>
+<!-- 导航栏 -->
+<header>
+  <nav>
+    <div class="menu-icon" onclick="toggleMenu()">
+      <img src="img/neatlogo.svg" alt="logo">
+    </div>
+    <ul>
+      <li><a href="#" class="active">首页</a></li>
+      <li><a href="about.html">关于我们</a></li>
+      <li><a href="projects.html">公益项目</a></li>
+      <li><a href="aidetalk.html">爱德说</a></li>
+      <li><a href="info.html">信息公开</a></li>
+      <li><a href="news.html">资讯</a></li>
+    </ul>
+    <ul class="dropdown-menu">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="about.html">关于我们</a></li>
+      <li><a href="projects.html">公益项目</a></li>
+      <li><a href="aidetalk.html">爱德说</a></li>
+      <li><a href="info.html">信息公开</a></li>
+      <li><a href="news.html">资讯</a></li>
+    </ul>
+  </nav>
+</header>
+
+<body>
+<!-- 第一屏 -->
+<div class="first-screen">
+    <div class="text">
+        <h1>源水汇聚爱圣，<br>浸润幼儿成长。</h1>
+    </div>
+    <div class="image">
+        <img src="img/Hero Image.png" alt="Hp2">
+    </div>
+</div>
+
+<!-- 第二屏 -->
+<div class="second-screen">
+  <img src="img/Hp2.jpg" alt="Hp2">
+  <div class="intro">
+      <div class="intro-left">
+          <h2>深圳市爱圣公益基金会</h2>
+          <h2>简介</h2>
+      </div>
+      <div class="intro-right">
+          <p>深圳市爱圣公益基金会（原深圳市正邦公益基金会）由爱圣国际教育集团有限公司发起，于2021年12月3日在深圳正式注册成立。深圳市爱圣公益基金会注册资金2000万元，为非公募基金会。</p>
+          <a href="about.html" class="button">
+            了解更多 &nbsp; →
+          </a>
+      </div>
+  </div>
+</div>
+
+<!-- 视频 -->
+<div class="third-screen">
+  <img src="img/happysection.png" alt="Happy Section">
+</div>
+
+<!-- 公益项目 -->
+<section class="projects">
+  <div class="container">
+    <div class="project">
+      <div class="project-image">
+        <img src="img/project.png" alt="Project Cover" width="600" height="400">
+      </div>
+      <div class="project-details">
+        <span class="project-tag">品牌公益项目展示</span>
+        <h2 class="project-title">“爱德说”幼儿德育作品征集活动</h2>
+        <p class="project-description">深圳市爱圣公益基金会于2022年创办了“爱德说”幼儿德育作品征集活动（原“正邦说”幼儿德育作品征集活动），旨在贯彻落实习近平总书记关于加强幼儿德育教育工作的重要指示。</p>
+        <a href="aidetalk.html" class="button2">
+          了解更多 &nbsp; →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <a href="#"><img src="img/LOGO.png" alt="Logo"></a>
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="#">首页</a></li>
+          <li><a href="about.html">关于我们</a></li>
+          <li><a href="projects.html">公益项目</a></li>
+          <li><a href="aidetalk.html">爱德说</a></li>
+          <li><a href="info.html">信息公开</a></li>
+          <li><a href="news.html">资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <p>All Rights Reserved. 深圳市爱圣公益基金会 版权所有</p>
+        <p>备案号：粤ICP备2022055650号-1</p>
+      </div>
+      <div class="footer-bottom-right">
+        <div class="footer-contact">
+          <p>邮箱：info@ascendfoundation.org.cn</p>
+          <p>地址：深圳市南山区粤海街道科苑南路2666号中国华润大厦</p>
+        </div>
+        <div class="footer-qrcode">
+          <img src="img/QRcode.jpg" alt="QR Code">
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- 弹窗 -->
+<div id="pdfModal" class="modal">
+  <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <iframe id="pdfFrame" src="" frameborder="0"></iframe>
+  </div>
+</div>
+
+<script>
+  function toggleMenu() {
+      const dropdownMenu = document.querySelector('.dropdown-menu');
+      dropdownMenu.classList.toggle('active');
+  }
+
+  function showFiles(year) {
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      document.querySelector(`.tab[onclick="showFiles('${year}')"]`).classList.add('active');
+
+      const filesSections = document.querySelectorAll('.files');
+      filesSections.forEach(section => section.style.display = 'none');
+      document.getElementById(`files-${year}`).style.display = 'flex';
+  }
+
+  // 打开弹窗
+  function openModal(pdfUrl) {
+      document.getElementById('pdfFrame').src = pdfUrl;
+      document.getElementById('pdfModal').style.display = 'block';
+  }
+
+  // 关闭弹窗
+  function closeModal() {
+      document.getElementById('pdfModal').style.display = 'none';
+      document.getElementById('pdfFrame').src = '';
+  }
+</script>
+
+
+</body>
+
+</html>

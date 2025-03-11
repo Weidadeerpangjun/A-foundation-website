@@ -1,0 +1,57 @@
+/* 首屏样式 */
+.first-screen {
+  height: auto; /* 高度设置为400px */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* 居中对齐 */
+  background: var(--light-green-linear); /* 渐变背景色 */
+  padding: 80px 10%; /* 上边距128px，左右10% */
+  box-sizing: border-box;
+  flex-direction: column; /* 垂直布局 */
+  text-align: center;
+}
+
+.first-screen img {
+  width: 100%; /* 图片宽度充满容器 */
+  height: auto; /* 高度自动调整 */
+  margin:120px 10% -320px 10%; /* 调整图片底部间距 */
+}
+
+
+/* 文章列表样式 */
+.article {
+  margin: 320px 10% 128px 10%; /* 调整文章列表的外边距 */
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* 文章之间的间隔 */
+}
+
+.article .text {
+  background: #fff;
+}
+
+.article .text p {
+  font-size: 18px;
+  color: #666;
+  font-weight: 300;
+  margin: 0;
+}
+
+.article .text .button {
+    margin-top: 40px;
+  display: inline-flex;
+  padding: 18px 40px;
+  align-items: center;
+  gap: 40px;
+  background-color: #1E7D74; /* 按钮背景色 */
+  color: #fff; /* 按钮文字颜色 */
+  border: none; /* 去掉边框 */
+  border-radius: 5px; /* 可选：添加圆角 */
+  cursor: pointer; /* 鼠标悬停时显示手型光标 */
+  transition: background-color 0.3s ease; /* 背景色过渡效果 */
+}
+
+.article .text .button:hover {
+  background-color: #98C01A; /* 悬停时的背景色 */
+}
